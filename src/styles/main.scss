@@ -1,0 +1,52 @@
+*, *:before, *::before, *:after, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  &[data-scroll-direction="horizontal"] {
+    max-height: 100vh;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+
+  &[data-scroll-direction="vertical"] {
+    max-width: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  &:first-of-type {
+    background-color: green;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &:nth-of-type(2) {
+    background-color: blue;
+    top: 0;
+    left: 100vw;
+  }
+
+  &:nth-of-type(3) {
+    background-color: red;
+    top: 100vh;
+    left: 100vw;
+
+  }
+
+  &:nth-of-type(4) {
+    background-color: yellow;
+    top: 100vh;
+    left: 200vw;
+
+  }
+}
