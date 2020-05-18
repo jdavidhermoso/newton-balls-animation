@@ -1,0 +1,31 @@
+@import 'vars';
+
+@keyframes ball1Animation {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: calc(33% - 50px);
+  }
+}
+
+@keyframes ball2Animation {
+  from {
+    left: 33%;
+  }
+
+  to {
+    left: calc(66% - #{$ball-size});
+  }
+}
+
+@keyframes ball3Animation {
+  from {
+    left: 66%;
+  }
+
+  to {
+    left: calc(100% - #{$ball-size});
+  }
+}
