@@ -10,7 +10,7 @@ body {
 
 .container {
   margin: 0 auto;
-  border: 1px solid;
+  //border: 1px solid;
   width: $game-width;
   height: $game-height;
   position: relative;
@@ -58,24 +58,31 @@ body {
   animation-direction: alternate;
   top: 50%;
 
-  &.one {
+  &:nth-of-type(1) {
     left: 0;
     background-color: blue;
     animation-name: ball1Animation;
   }
 
-  &.two {
-    left: 33%;
+  &:nth-of-type(2) {
+    left: 25%;
     background-color: green;
     animation-name: ball2Animation;
     animation-delay: 1s;
   }
 
-  &.three {
-    left: 66%;
+  &:nth-of-type(3) {
+    left: 50%;
     background-color: red;
     animation-name: ball3Animation;
     animation-delay: 2s;
   }
+  &:nth-of-type(4) {
+    left: 75%;
+    background-color: purple;
+    animation-name: ball4Animation;
+    animation-delay: 3s;
+  }
 }
+
 

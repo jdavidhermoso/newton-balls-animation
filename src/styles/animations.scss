@@ -6,23 +6,30 @@
   }
 
   to {
-    left: calc(33% - 50px);
+    left: calc(25% - 50px);
   }
 }
-
 @keyframes ball2Animation {
   from {
-    left: 33%;
+    left: 25%;
   }
 
   to {
-    left: calc(66% - #{$ball-size});
+    left: calc(50% - #{$ball-size});
   }
 }
-
 @keyframes ball3Animation {
   from {
-    left: 66%;
+    left: 50%;
+  }
+
+  to {
+    left: calc(75% - #{$ball-size});
+  }
+}
+@keyframes ball4Animation {
+  from {
+    left: 75%;
   }
 
   to {
