@@ -6,14 +6,130 @@
 
 body {
   margin: 0;
+  overflow: hidden;
+}
+
+.picture__credit {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  font-family: "Roboto", sans-serif;
+
 }
 
 .container {
-  margin: 0 auto;
-  //border: 1px solid;
+  overflow: hidden;
+  width: $container-width;
+  height: $container-height;
+  position: relative;
+
+  &::before {
+    filter: blur(4px);
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url('../assets/office-820390_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.game {
+  position: relative;
   width: $game-width;
   height: $game-height;
-  position: relative;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 60vw;
+  }
+}
+
+.ball {
+  display: inline-block;
+  position: absolute;
+  width: $ball-size;
+  height: $ball-size;
+  border-radius: 50%;
+  top: 50%;
+  background-image: url("../assets/background-1172581_1920.jpg");
+  background-size: cover;
+
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  &:nth-of-type(1) {
+    left: 0;
+    @include ballAnimation(1, 0, 25);
+    transform: rotateZ(230deg);
+  }
+
+  &:nth-of-type(2) {
+    left: 25%;
+    @include ballAnimation(2, 25, 50);
+    animation-delay: 1s;
+    transform: rotateZ(165deg);
+  }
+
+  &:nth-of-type(3) {
+    left: 50%;
+    @include ballAnimation(3, 50, 75);
+    animation-delay: 2s;
+    transform: rotateZ(90deg);
+  }
+
+  &:nth-of-type(4) {
+    left: 75%;
+    @include ballAnimation(4, 75, 100);
+    animation-delay: 3s;
+    transform: rotateZ(76deg);
+  }
+}
+
+@keyframes tapAdAnimation {
+  from {
+    font-size: 1em;
+  }
+  to {
+    font-size: 4em;
+  }
+}
+
+.tap__ad {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .tap__ad {
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 100%;
+    color: #fff;
+    transform: translateY(-50%);
+    z-index: 1;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    transition: font-size 2s;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    animation-name: tapAdAnimation;
+  }
 }
 
 .splitter {
@@ -40,48 +156,6 @@ body {
     left: 0;
     width: 100%;
     height: 1px;
-  }
-}
-
-.ball {
-  border: 1px solid;
-  display: inline-block;
-  position: absolute;
-  width: $ball-size;
-  height: $ball-size;
-  background-color: red;
-  border-radius: 50%;
-
-  animation-timing-function: ease-in-out;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  top: 50%;
-
-  &:nth-of-type(1) {
-    left: 0;
-    background-color: blue;
-    animation-name: ball1Animation;
-  }
-
-  &:nth-of-type(2) {
-    left: 25%;
-    background-color: green;
-    animation-name: ball2Animation;
-    animation-delay: 1s;
-  }
-
-  &:nth-of-type(3) {
-    left: 50%;
-    background-color: red;
-    animation-name: ball3Animation;
-    animation-delay: 2s;
-  }
-  &:nth-of-type(4) {
-    left: 75%;
-    background-color: purple;
-    animation-name: ball4Animation;
-    animation-delay: 3s;
   }
 }
 

@@ -21,7 +21,14 @@ module.exports = {
           'css-loader',
           'sass-loader',
         ],
-      }
+      },
+      {
+        test: /\.(jpg)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+        },
+      },
     ]
   },
   plugins: [

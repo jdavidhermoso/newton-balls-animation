@@ -1,13 +1,20 @@
 import '../styles/main.scss';
 
+const tapAdd = document.getElementById('tap-ad');
 let balls = Array.from(document.getElementsByClassName("ball"));
 
-balls.forEach((ball) => {
-  ball.addEventListener("animationiteration", function (e) {
-    if (navigator.vibrate) {
-      navigator.vibrate(200);
-    }
-
-  }, false);
+tapAdd.addEventListener('click', () => {
+  tapAdd.style.display = 'none';
+  startVibration();
 });
+
+function startVibration() {
+  balls.forEach((ball) => {
+    ball.addEventListener("animationiteration", onBallImpact);
+  });
+}
+
+function onBallImpact() {
+  navigator.vibrate(200);
+}
 

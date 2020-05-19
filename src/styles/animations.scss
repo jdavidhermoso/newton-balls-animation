@@ -1,38 +1,15 @@
 @import 'vars';
 
-@keyframes ball1Animation {
-  from {
-    left: 0;
+@mixin ballAnimation($ball-id, $from, $to) {
+  @keyframes ball#{$ball-id}Animation {
+    from {
+      left: $from + '%';
+    }
+
+    to {
+      left: calc(#{$to + '%'} - #{$ball-size});
+    }
   }
 
-  to {
-    left: calc(25% - 50px);
-  }
-}
-@keyframes ball2Animation {
-  from {
-    left: 25%;
-  }
-
-  to {
-    left: calc(50% - #{$ball-size});
-  }
-}
-@keyframes ball3Animation {
-  from {
-    left: 50%;
-  }
-
-  to {
-    left: calc(75% - #{$ball-size});
-  }
-}
-@keyframes ball4Animation {
-  from {
-    left: 75%;
-  }
-
-  to {
-    left: calc(100% - #{$ball-size});
-  }
+  animation-name: ball#{$ball-id}Animation;
 }
